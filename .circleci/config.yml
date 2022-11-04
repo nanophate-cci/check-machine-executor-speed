@@ -1,0 +1,11 @@
+version: 2.1
+
+jobs:
+  build: # name of your job
+    machine: # executor type
+      image: ubuntu-2004:2022.10.1 # # recommended linux image - includes Ubuntu 20.04, docker 19.03.13, docker-compose 1.27.4
+      steps:
+        - checkout
+        - run: curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+        - run: sudo apt-get install speedtest
+        - run: speedtest
